@@ -9,6 +9,10 @@ Supported tags and respective `Dockerfile` links
 -   [`python2.7.10-openresty`, `python2.7-openresty`, `python2-openresty` (*python2/openresty/Dockerfile*)](https://github.com/disqus/docker-nginx/blob/master/python2/openresty/Dockerfile)
 -   [`python2.7.10-openresty-onbuild`, `python2.7-openresty-onbuild`, `python2-openresty-onbuild` (*python2/openresty/onbuild/Dockerfile*)](https://github.com/disqus/docker-nginx/blob/master/python2/openresty/onbuild/Dockerfile)
 
+# Why not link containers?
+
+In larger deployments, it's harder to tightly couple an application container with it's nginx configs and make sure that they are always 100% paired together. This does not replace a normal upstream proxy, but this is intended to run in front of say, uwsgi or gunicorn.
+
 # How to use this image
 
 ## Create a `Dockerfile` in your Python app project
