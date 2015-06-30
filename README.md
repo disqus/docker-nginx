@@ -1,7 +1,7 @@
 Supported tags and respective `Dockerfile` links
 
 -   [`python2.7.10`, `python2.7`, `python2` (*python2/full/Dockerfile*)](https://github.com/disqus/docker-nginx/blob/master/python2/full/Dockerfile)
--   [`python2.7.10-onbuild`, `python2.7-onbuild`, `python2-onbuild` (*python2/full/onbuild/Dockerfile*)](https://github.com/disqus/docker-nginx/blob/master/python2/full/onbuild/Dockerfile)
+-   [`python2.7.10-onbuild`, `python2.7-onbuild`, `python2-onbuild`, `latest` (*python2/full/onbuild/Dockerfile*)](https://github.com/disqus/docker-nginx/blob/master/python2/full/onbuild/Dockerfile)
 -   [`python2.7.10-light`, `python2.7-light`, `python2-light` (*python2/light/Dockerfile*)](https://github.com/disqus/docker-nginx/blob/master/python2/light/Dockerfile)
 -   [`python2.7.10-light-onbuild`, `python2.7-light-onbuild`, `python2-light-onbuild` (*python2/light/onbuild/Dockerfile*)](https://github.com/disqus/docker-nginx/blob/master/python2/light/onbuild/Dockerfile)
 -   [`python2.7.10-full`, `python2.7-full`, `python2-full` (*python2/full/Dockerfile*)](https://github.com/disqus/docker-nginx/blob/master/python2/full/Dockerfile)
