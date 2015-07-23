@@ -1,10 +1,13 @@
 FROM disqus/nginx:python2-light
 
-RUN curl -o /usr/local/bin/nginx-and -sL "https://github.com/mattrobenolt/nginx-and/releases/download/0.1.1/nginx-and-linux-$(dpkg --print-architecture)" \
+RUN curl -o /usr/local/bin/nginx-and -sL "https://github.com/mattrobenolt/nginx-and/releases/download/0.1.2/nginx-and-linux-$(dpkg --print-architecture)" \
     && chmod +x /usr/local/bin/nginx-and
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
+
+ONBUILD COPY onbuild/* /usr/src/app/
+ONBUILD RUN for i in onbuild/*; do sh $i; done
 
 ONBUILD COPY requirements.txt /usr/src/app/
 ONBUILD RUN pip install --no-cache-dir -r requirements.txt

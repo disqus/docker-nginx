@@ -1,6 +1,6 @@
 FROM disqus/nginx:python2-full
 
-RUN curl -o /usr/local/bin/nginx-and -sL "https://github.com/mattrobenolt/nginx-and/releases/download/0.1.1/nginx-and-linux-$(dpkg --print-architecture)" \
+RUN curl -o /usr/local/bin/nginx-and -sL "https://github.com/mattrobenolt/nginx-and/releases/download/0.1.2/nginx-and-linux-$(dpkg --print-architecture)" \
     && chmod +x /usr/local/bin/nginx-and
 
 RUN mkdir -p /usr/src/app
