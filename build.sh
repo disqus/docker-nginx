@@ -20,7 +20,7 @@ for variant in light full openresty; do
         docker push $repo:python$version-$variant-onbuild
     done
     if [ $variant == $default ]; then
-        docker tag $tag $repo:python$version
-        docker push $repo:python$version
+        docker tag $tag $repo:python$version-onbuild
+        docker push $repo:python$version-onbuild
     fi
 done
