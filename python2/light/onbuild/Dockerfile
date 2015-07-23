@@ -6,9 +6,6 @@ RUN curl -o /usr/local/bin/nginx-and -sL "https://github.com/mattrobenolt/nginx-
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-ONBUILD COPY onbuild/* /usr/src/app/
-ONBUILD RUN for i in onbuild/*; do sh $i; done
-
 ONBUILD COPY requirements.txt /usr/src/app/
 ONBUILD RUN pip install --no-cache-dir -r requirements.txt
 
