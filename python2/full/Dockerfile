@@ -82,6 +82,10 @@ RUN buildDeps='libgd-dev libgeoip-dev libpam0g-dev'; \
 
 ENV PATH $PATH:/usr/local/nginx/sbin
 
+# redirect all logs to stderr/stdout
+RUN ln -sf /dev/stdout /var/log/nginx/access.log
+RUN ln -sf /dev/stderr /var/log/nginx/error.log
+
 WORKDIR /usr/local/nginx/html
 EXPOSE 80 443
 
