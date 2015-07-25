@@ -1,8 +1,8 @@
 FROM python:2.7
 
+RUN gpg --keyserver pool.sks-keyservers.net --recv-keys B550E09EA0E98066
 ENV OPENRESTY_VERSION 1.7.10.2
 ENV OPENRESTY_DOWNLOAD_URL http://openresty.org/download/ngx_openresty-1.7.10.2.tar.gz
-ENV OPENRESTY_DOWNLOAD_SHA1 9b18a6ec7ce1f3f8bbd59bfe36e2160cc9554909
 
 RUN buildDeps='libgd-dev libgeoip-dev libpam0g-dev'; \
     runtimeDeps='libgd3 libgeoip1'; \
@@ -27,9 +27,10 @@ RUN buildDeps='libgd-dev libgeoip-dev libpam0g-dev'; \
         && curl -sSL https://github.com/yaoweibin/ngx_http_substitutions_filter_module/archive/v0.6.4.tar.gz \
             | tar -zxvC $modsDir/ngx_http_substitutions_filter_module --strip-components=1 \
     && curl -sSL "$OPENRESTY_DOWNLOAD_URL" -o openresty.tar.gz \
-    && echo "$OPENRESTY_DOWNLOAD_SHA1 openresty.tar.gz" | sha1sum -c - \
+    && curl -sSL "$OPENRESTY_DOWNLOAD_URL.asc" -o openresty.tar.gz.asc \
+    && gpg --verify openresty.tar.gz.asc \
     && tar -xzf openresty.tar.gz -C /usr/src/nginx --strip-components=1 \
-    && rm openresty.tar.gz \
+    && rm openresty.tar.gz && rm openresty.tar.gz.asc \
     && ( cd /usr/src/nginx ; ./configure \
         --conf-path=/etc/nginx/nginx.conf \
         --http-log-path=/var/log/nginx/access.log \

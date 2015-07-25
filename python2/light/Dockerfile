@@ -1,8 +1,8 @@
 FROM python:2.7
 
+RUN gpg --keyserver pool.sks-keyservers.net --recv-keys 520A9993A1C052F8
 ENV NGINX_VERSION 1.8.0
 ENV NGINX_DOWNLOAD_URL http://nginx.org/download/nginx-1.8.0.tar.gz
-ENV NGINX_DOWNLOAD_SHA1 12bad312764feae50246685ab2e74512d1aa9b2f
 
 RUN modsDir='/usr/src/nginx-modules'; \
     set -x \
@@ -14,9 +14,10 @@ RUN modsDir='/usr/src/nginx-modules'; \
             | tar -zxvC $modsDir/nginx-echo --strip-components=1 \
     && mkdir -p /usr/src/nginx \
     && curl -sSL "$NGINX_DOWNLOAD_URL" -o nginx.tar.gz \
-    && echo "$NGINX_DOWNLOAD_SHA1 nginx.tar.gz" | sha1sum -c - \
+    && curl -sSL "$NGINX_DOWNLOAD_URL.asc" -o nginx.tar.gz.asc \
+    && gpg --verify nginx.tar.gz.asc \
     && tar -xzf nginx.tar.gz -C /usr/src/nginx --strip-components=1 \
-    && rm nginx.tar.gz \
+    && rm nginx.tar.gz && rm nginx.tar.gz.asc \
     && ( cd /usr/src/nginx ; ./configure \
         --conf-path=/etc/nginx/nginx.conf \
         --http-log-path=/var/log/nginx/access.log \
