@@ -1,8 +1,8 @@
 FROM python:2.7
 
-ENV OPENRESTY_VERSION 1.7.10.1
-ENV OPENRESTY_DOWNLOAD_URL http://openresty.org/download/ngx_openresty-1.7.10.1.tar.gz
-ENV OPENRESTY_DOWNLOAD_SHA1 0cc7a3fe75fbe50dec619af1a09b87f7f8c79e1d
+ENV OPENRESTY_VERSION 1.7.10.2
+ENV OPENRESTY_DOWNLOAD_URL http://openresty.org/download/ngx_openresty-1.7.10.2.tar.gz
+ENV OPENRESTY_DOWNLOAD_SHA1 9b18a6ec7ce1f3f8bbd59bfe36e2160cc9554909
 
 RUN buildDeps='libgd-dev libgeoip-dev libpam0g-dev'; \
     runtimeDeps='libgd3 libgeoip1'; \
