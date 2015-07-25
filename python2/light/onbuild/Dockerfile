@@ -12,7 +12,7 @@ ONBUILD RUN pip install --no-cache-dir -r requirements.txt
 ONBUILD COPY . /usr/src/app
 
 # if this is UWSGI_VERSION, uwsgi thinks you're trying to call `uwsgi --version` so it doesn't actually work
-ENV PYTHON_UWSGI_VERSION 2.0.10
+ENV PYTHON_UWSGI_VERSION 2.0.11.1
 RUN pip install --no-cache-dir uwsgi==$PYTHON_UWSGI_VERSION
 
 COPY nginx.conf /etc/nginx/nginx.conf
