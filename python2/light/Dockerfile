@@ -46,7 +46,7 @@ RUN modsDir='/usr/src/nginx-modules'; \
         --without-http_ssi_module \
         --without-http_userid_module \
         # this doesn't normally exist in nginx-light... but this is for python, so we want it
-        --without-http_uwsgi_module \
+        # --without-http_uwsgi_module \
         --without-mail_pop3_module \
         --without-mail_imap_module \
         --without-mail_smtp_module \
