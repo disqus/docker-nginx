@@ -24,3 +24,7 @@ for variant in light full openresty; do
         docker push $repo:python$version-onbuild
     fi
 done
+
+docker build --rm -t $tag ./python3/light
+docker tag $tag $repo:python3.6-light
+docker push $repo:python3.6-light

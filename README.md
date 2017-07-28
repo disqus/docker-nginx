@@ -1,5 +1,6 @@
 Supported tags and respective `Dockerfile` links
 
+-   [`python3.6.2`, `python3.6`, `python3` (*python3/light/Dockerfile*)](https://github.com/disqus/docker-nginx/blob/master/python3/light/Dockerfile)
 -   [`python2.7.10`, `python2.7`, `python2` (*python2/full/Dockerfile*)](https://github.com/disqus/docker-nginx/blob/master/python2/full/Dockerfile)
 -   [`python2.7.10-onbuild`, `python2.7-onbuild`, `python2-onbuild`, `latest` (*python2/full/onbuild/Dockerfile*)](https://github.com/disqus/docker-nginx/blob/master/python2/full/onbuild/Dockerfile)
 -   [`python2.7.10-light`, `python2.7-light`, `python2-light` (*python2/light/Dockerfile*)](https://github.com/disqus/docker-nginx/blob/master/python2/light/Dockerfile)
