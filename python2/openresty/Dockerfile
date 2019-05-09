@@ -1,8 +1,8 @@
-FROM python:2.7
+FROM python:2.7-jessie
 
-RUN gpg --keyserver pool.sks-keyservers.net --recv-keys B550E09EA0E98066
+RUN gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys B550E09EA0E98066
 ENV OPENRESTY_VERSION 1.7.10.2
-ENV OPENRESTY_DOWNLOAD_URL http://openresty.org/download/ngx_openresty-1.7.10.2.tar.gz
+ENV OPENRESTY_DOWNLOAD_URL http://openresty.org/download/ngx_openresty-${OPENRESTY_VERSION}.tar.gz
 
 RUN buildDeps='libgd-dev libgeoip-dev libpam0g-dev'; \
     runtimeDeps='libgd3 libgeoip1'; \
